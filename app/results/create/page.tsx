@@ -16,9 +16,9 @@ import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 import { useEffect, useState } from 'react'
 
 interface Result {
-  course: string | undefined
-  student: string | undefined
-  score: string | undefined
+  course: string
+  student: string
+  score: string
 }
 
 interface Student {
@@ -38,9 +38,9 @@ export default function CreateResults() {
   const [courses, setCourses] = useState<Course[]>([])
   const [students, setStudents] = useState<Student[]>([])
   const [result, setResult] = useState<Result>({
-    course: undefined,
-    student: undefined,
-    score: undefined,
+    course: '',
+    student: '',
+    score: '',
   })
   const [formErrors, setFormErrors] = useState<string[]>([])
   const [snackbarOpen, setSnackbarOpen] = useState([false, true])
@@ -93,9 +93,9 @@ export default function CreateResults() {
       const isSuccess = await addResult(result)
       if (isSuccess) {
         setResult({
-          course: undefined,
-          student: undefined,
-          score: undefined,
+          course: '',
+          student: '',
+          score: '',
         })
         setFormErrors([])
       }
